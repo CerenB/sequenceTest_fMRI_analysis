@@ -13,15 +13,15 @@ addpath(fullfile(fileparts(mfilename('fullpath')), '..'));
 initEnv();
 
 % we add all the subfunctions that are in the sub directories
-opt = getOptionCategBlock();
+opt = getOptionSequenceTest();
 
 checkDependencies();
 
 %% Run batches
 
-% bidsCopyRawFolder(opt, 0);
-% bidsSTC(opt);
-% bidsSpatialPrepro(opt);
+bidsCopyRawFolder(opt, 0);
+bidsSTC(opt);
+bidsSpatialPrepro(opt);
 bidsSmoothing(FWHM, opt);
 bidsFFX('specifyAndEstimate', opt, FWHM, isMVPA);
 bidsFFX('contrasts', opt, FWHM, isMVPA);
